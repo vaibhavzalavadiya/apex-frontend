@@ -69,10 +69,15 @@ const UploadForm = ({ setResultImage, setIsLoading }) => {
       setIsSubmitting(true);
 
       // Use fetch API for the request
-      const response = await fetch("http://127.0.0.1:8000/api/remove-background/", {
+      // const response = await fetch("http://127.0.0.1:8000/api/remove-background/", {
+      //   method: 'POST',
+      //   body: formData,
+      // });
+
+      const response = await fetch("http://192.168.92.182:8000/api/remove-background/", {
         method: 'POST',
         body: formData,
-      });
+    });
 
       if (!response.ok) {
         throw new Error('Server responded with an error');
