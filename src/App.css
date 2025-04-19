@@ -1,0 +1,166 @@
+/* App.css */
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* UploadForm.css */
+.upload-card {
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+
+.upload-area {
+  border: 2px dashed #dee2e6;
+  padding: 20px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-area.drag-active {
+  border-color: #0d6efd;
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.upload-icon {
+  font-size: 48px;
+  color: #0d6efd;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.or-divider {
+  margin: 1rem 0;
+  position: relative;
+  color: #6c757d;
+}
+
+.preview-image,
+.processed-image {
+  position: relative;
+  display: block;
+  padding-top: 50%;
+}
+.preview-image img,
+.processed-image img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+}
+.processed-image img{
+  object-fit: scale-down;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #0d6efd, #0dcaf0);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Result.css */
+.result-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.result-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.checkerboard-bg {
+  background-image: 
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+    linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+    linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.processed-image {
+  max-height: 350px;
+  object-fit: contain;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.toast {
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .upload-area {
+    padding: 1.5rem;
+    min-height: 200px;
+  }
+  
+  .processed-image {
+    max-height: 250px;
+  }
+}
